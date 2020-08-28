@@ -1,0 +1,5 @@
+[database]
+user = "root"
+password = "rootpassword"
+address = "tcp(db:3306)"
+name = "amby"
