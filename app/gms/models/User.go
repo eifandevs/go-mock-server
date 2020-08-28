@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/eifandevs/amby/repo"
+	"github.com/eifandevs/gms/repo"
 	"github.com/jinzhu/gorm"
 )
 

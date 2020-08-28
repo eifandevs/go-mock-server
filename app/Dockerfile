@@ -14,7 +14,7 @@ RUN apt-get update \
 
 
 
-WORKDIR /go/src/github.com/eifandevs/amby
+WORKDIR /go/src/github.com/eifandevs/gms
 
 # CMD ["go", "run", "main.go"]
 CMD ["tail", "-f", "/dev/null"]

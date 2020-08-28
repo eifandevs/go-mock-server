@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/eifandevs/amby/models"
+	"github.com/eifandevs/gms/models"
 	"github.com/labstack/echo"
 )
 
