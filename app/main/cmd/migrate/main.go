@@ -14,7 +14,4 @@ func main() {
 
   // create favorite table
   db.AutoMigrate(&models.Favorite{})
-
-  // create memo table
-  db.AutoMigrate(&models.Memo{})
 }

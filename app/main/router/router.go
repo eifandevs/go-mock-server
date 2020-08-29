@@ -30,9 +30,6 @@ func Init() *echo.Echo {
 		api.GET("/favorite", controllers.GetFavoriteHandler())
 		api.POST("/favorite", controllers.PostFavoriteHandler())
 		api.DELETE("/favorite", controllers.DeleteFavoriteHandler())
-		api.GET("/memo", controllers.GetMemoHandler())
-		api.POST("/memo", controllers.PostMemoHandler())
-		api.DELETE("/memo", controllers.DeleteMemoHandler())
 	}
 
 	mockApi := e.Group("/mock")

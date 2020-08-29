@@ -11,5 +11,4 @@ func main() {
 
 	db.DropTableIfExists(&models.User{})
 	db.DropTableIfExists(&models.Favorite{})
-	db.DropTableIfExists(&models.Memo{})
 }
