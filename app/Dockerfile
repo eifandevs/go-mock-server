@@ -14,7 +14,7 @@ RUN apt-get update \
 
 
 
-WORKDIR /go/src/github.com/eifandevs/gms
+WORKDIR /go/src/github.com/eifandevs/main
 
 # CMD ["go", "run", "main.go"]
 CMD ["tail", "-f", "/dev/null"]

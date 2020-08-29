@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/eifandevs/gms/repo"
+	"github.com/eifandevs/main/repo"
 	"github.com/jinzhu/gorm"
 	"github.com/thoas/go-funk"
 )

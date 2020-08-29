@@ -12,7 +12,7 @@ services:
       - ./proxy/default.conf:/etc/nginx/conf.d/default.conf
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf
     networks:
-      gms_app_net:
+      go_mock_net:
         ipv4_address: 172.16.238.10
     tty: true
 
@@ -25,9 +25,9 @@ services:
       - "db"
     tty: true
     volumes:
-      - "./app/gms:/go/src/github.com/eifandevs/gms"
+      - "./app/main:/go/src/github.com/eifandevs/main"
     networks:
-      gms_app_net:
+      go_mock_net:
         ipv4_address: 172.16.238.11
 
   db:
@@ -36,7 +36,7 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: gms
+      MYSQL_DATABASE: main
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: rootpassword
@@ -46,11 +46,11 @@ services:
       - ./db/conf.d:/etc/mysql/conf.d
       - ./db/log:/var/log/mysql
     networks:
-      gms_app_net:
+      go_mock_net:
         ipv4_address: 172.16.238.12
 
 networks:
-  gms_app_net:
+  go_mock_net:
     driver: bridge
     ipam:
       driver: default

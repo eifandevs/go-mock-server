@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/eifandevs/gms/router"
+	"github.com/eifandevs/main/router"
 )
 
 func main() {

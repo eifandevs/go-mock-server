@@ -1,1 +1,0 @@
-mysql -uroot -prootpassword -hdb -Dgms

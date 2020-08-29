@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/eifandevs/gms/models"
-	"github.com/eifandevs/gms/repo"
+	"github.com/eifandevs/main/models"
+	"github.com/eifandevs/main/repo"
 )
 
 func main() {

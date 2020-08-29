@@ -3,9 +3,9 @@ package router
 import (
 	"fmt"
 
-	"github.com/eifandevs/gms/controllers"
-	"github.com/eifandevs/gms/interceptor"
-	"github.com/eifandevs/gms/mock"
+	"github.com/eifandevs/main/controllers"
+	"github.com/eifandevs/main/interceptor"
+	"github.com/eifandevs/main/mock"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
