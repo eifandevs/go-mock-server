@@ -1,0 +1,1 @@
+redoc-cli bundle openapi.yaml

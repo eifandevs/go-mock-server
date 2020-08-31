@@ -1,0 +1,22 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: REST sample
+paths:
+  /api/login:
+    post:
+      tags:
+        - login
+      summary: ログインする
+      description: モデルUserにレコードを追加し、トークンを返却する。登録されている場合もトークンを返却する。
+      responses:
+        '200':
+          description: HTTPステータスコード200と以下の情報を含むJSONオブジェクトを返します。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: string
+                    example: 1234567
