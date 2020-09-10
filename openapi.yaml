@@ -9,14 +9,77 @@ paths:
         - login
       summary: ログインする
       description: モデルUserにレコードを追加し、トークンを返却する。登録されている場合もトークンを返却する。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: データ
+                  properties:
+                    mail:
+                      type: string
+                      example: aaa@ggg
       responses:
         '200':
-          description: HTTPステータスコード200と以下の情報を含むJSONオブジェクトを返します。
+          description: アクセストークンを返します。
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  user_id:
+                  code:
                     type: string
-                    example: 1234567
+                    example: 1000
+                  errorMessage:
+                    type: string
+                    example: 内部エラー
+                  data:
+                    type: object
+                    properties:
+                      accessToken:
+                        type: string
+                        example: aaeefeifufeofefjk
+  /api/favorite:
+    post:
+      tags:
+        - favorite
+      summary: お気に入り操作
+      description: お気に入りの登録・削除
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: データ
+                  properties:
+                    mail:
+                      type: string
+                      example: aaa@ggg
+      responses:
+        '200':
+          description: アクセストークンを返します。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    example: 1000
+                  errorMessage:
+                    type: string
+                    example: 内部エラー
+                  data:
+                    type: object
+                    properties:
+                      accessToken:
+                        type: string
+                        example: aaeefeifufeofefjk

@@ -1,0 +1,1 @@
+redoc-cli serve openapi.yaml --watch

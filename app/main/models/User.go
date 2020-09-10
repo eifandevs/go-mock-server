@@ -14,7 +14,7 @@ type UserInfo struct {
 }
 
 type UserToken struct {
-    AccessToken string `json:"access_token"`
+    AccessToken string `json:"accessToken"`
 }
 
 type User struct {
