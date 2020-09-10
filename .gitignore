@@ -1,2 +1,3 @@
 db/log
 app/main/data
+./redoc-static.html
