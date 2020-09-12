@@ -1,7 +1,9 @@
 openapi: 3.0.0
+
 info:
   version: 1.0.0
   title: REST sample
+
 paths:
   /api/login:
     post:
@@ -9,6 +11,9 @@ paths:
         - login
       summary: ログインする
       description: モデルUserにレコードを追加し、トークンを返却する。登録されている場合もトークンを返却する。
+      security:
+        - basicAuth: []
+      parameters: []
       requestBody:
         required: true
         content:
@@ -22,6 +27,7 @@ paths:
                   properties:
                     mail:
                       type: string
+                      description: メールアドレス
                       example: aaa@ggg
       responses:
         '200':
@@ -33,22 +39,89 @@ paths:
                 properties:
                   code:
                     type: string
+                    description: 結果コード
                     example: 1000
                   errorMessage:
                     type: string
+                    description: エラーメッセージ
                     example: 内部エラー
                   data:
                     type: object
                     properties:
                       accessToken:
                         type: string
+                        description: アクセストークン
                         example: aaeefeifufeofefjk
   /api/favorite:
     post:
       tags:
         - favorite
-      summary: お気に入り操作
-      description: お気に入りの登録・削除
+      summary: お気に入り登録
+      description: お気に入りの登録
+      parameters:
+        - in: header
+          name: Access-Token
+          schema:
+            description: アクセストークン
+            required: true
+            type: string
+            example: ddsdfghjhgfd
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Favorite'
+      responses:
+        '200':
+          description: 登録結果を返します
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+    get:
+      tags:
+        - favorite
+      summary: お気に入り取得
+      description: お気に入りの取得
+      parameters:
+        - in: header
+          name: Access-Token
+          schema:
+            description: アクセストークン
+            required: true
+            type: string
+            example: ddsdfghjhgfd
+      responses:
+        '200':
+          description: 取得結果を返します
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Favorite'
+    delete:
+      tags:
+        - favorite
+      summary: お気に入り削除
+      description: お気に入りの削除
+      parameters:
+        - in: header
+          name: Access-Token
+          schema:
+            description: アクセストークン
+            required: true
+            type: string
+            example: ddsdfghjhgfd
       requestBody:
         required: true
         content:
@@ -60,26 +133,40 @@ paths:
                   type: object
                   description: データ
                   properties:
-                    mail:
+                    fid:
                       type: string
-                      example: aaa@ggg
-      responses:
-        '200':
-          description: アクセストークンを返します。
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    example: 1000
-                  errorMessage:
-                    type: string
-                    example: 内部エラー
-                  data:
-                    type: object
-                    properties:
-                      accessToken:
-                        type: string
-                        example: aaeefeifufeofefjk
+                      description: favoriteId
+                      example: 1
+components:
+  schemas:
+    Favorite:
+      type: object 
+      required:
+        - fid
+      properties:
+        fid:
+          type: string
+          description: クライアントで決定するfavoriteId
+          example: 1
+        title:
+          type: string
+          description: タイトル
+          example: google
+        url:
+          type: string
+          description: url
+          example: http://google.com
+    Result:
+      type: object 
+      required:
+        - code
+        - errorMessage
+      properties:
+        code:
+          type: string
+          description:  結果コード
+          example: 1000
+        errorMessage:
+          type: string
+          description: エラーメッセージ
+          example: 内部エラー
